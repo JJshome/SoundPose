@@ -162,4 +162,4 @@ results = analyzer.analyze_file('new_recording.wav')
 
 ## 감사의 말
 
-이 작업은 유케어트론(Ucaretron Inc.)에서 개발한 "트랜스포머 기반 비정상 행동의 정량적 진단 방법" (2023) 특허 기술을 기반으로 합니다.
+이 작업은 유케어트론(Ucaretron Inc.)에서 개발한 "트랜스포머 기반 비정상 행동의 정량적 진단 방법" (2023) 특허 기술을 기반으로 합니다. SoundPose<sup>TM</sup>는 (주)유케어트론의 상표입니다.
