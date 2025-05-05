@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <style>
+    @keyframes normalWave {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-200px); }
+    }
+    @keyframes coldWave {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-200px); }
+    }
+    @keyframes pneumoniaWave {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-200px); }
+    }
+    @keyframes scoreRise {
+      0% { width: 0; }
+      100% { width: 100%; }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .title {
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      text-anchor: middle;
+    }
+    .subtitle {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      text-anchor: middle;
+      fill: #666;
+    }
+    .label {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .sublabel {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      fill: #666;
+    }
+    .score-text {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      text-anchor: middle;
+    }
+    .wave {
+      animation-duration: 8s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+    .normal-wave { 
+      animation-name: normalWave;
+      stroke: #4CAF50;
+    }
+    .cold-wave {
+      animation-name: coldWave;
+      stroke: #FFC107;
+    }
+    .pneumonia-wave {
+      animation-name: pneumoniaWave;
+      stroke: #F44336;
+    }
+    .score-bar {
+      animation: scoreRise 2s ease-out forwards;
+    }
+    .panel {
+      animation: fadeIn 1s ease-out forwards;
+    }
+    .disclaimer {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      fill: #999;
+      text-anchor: middle;
+    }
+  </style>
+
+  <!-- 배경 -->
+  <rect width="800" height="500" fill="#f8f9fa" rx="10" ry="10" />
+
+  <!-- 제목 -->
+  <text x="400" y="40" class="title">SoundPose 기반 음성 건강 상태 분석</text>
+  <text x="400" y="65" class="subtitle">트랜스포머 기반 정량적 음성 이상 진단 시각화</text>
+
+  <!-- 정상 음성 패널 -->
+  <g class="panel" style="opacity: 0; animation-delay: 0.2s">
+    <rect x="50" y="100" width="700" height="100" fill="white" stroke="#ddd" rx="5" ry="5" />
+    <text x="70" y="125" class="label">정상 음성</text>
+    <text x="70" y="145" class="sublabel">이상 점수: 0.12</text>
+    
+    <!-- 음파 시각화 -->
+    <clipPath id="normalClip">
+      <rect x="250" y="110" width="350" height="80" />
+    </clipPath>
+    <g clip-path="url(#normalClip)">
+      <path d="M250,150 
+               Q270,135 290,150 
+               Q310,165 330,150 
+               Q350,135 370,150 
+               Q390,165 410,150 
+               Q430,135 450,150 
+               Q470,165 490,150 
+               Q510,135 530,150 
+               Q550,165 570,150 
+               Q590,135 610,150 
+               Q630,165 650,150 
+               Q670,135 690,150 
+               Q710,165 730,150 
+               Q750,135 770,150 
+               Q790,165 810,150" 
+        fill="none" stroke-width="2" class="wave normal-wave" />
+    </g>
+    
+    <!-- 점수 바 -->
+    <rect x="620" y="125" width="100" height="20" fill="#eee" rx="3" ry="3" />
+    <rect x="620" y="125" width="12" height="20" fill="#4CAF50" rx="3" ry="3" class="score-bar" />
+    <text x="670" y="140" class="score-text">12%</text>
+  </g>
+
+  <!-- 가벼운 감기 음성 패널 -->
+  <g class="panel" style="opacity: 0; animation-delay: 0.4s">
+    <rect x="50" y="220" width="700" height="100" fill="white" stroke="#ddd" rx="5" ry="5" />
+    <text x="70" y="245" class="label">가벼운 감기 음성</text>
+    <text x="70" y="265" class="sublabel">이상 점수: 0.47</text>
+    
+    <!-- 음파 시각화 -->
+    <clipPath id="coldClip">
+      <rect x="250" y="230" width="350" height="80" />
+    </clipPath>
+    <g clip-path="url(#coldClip)">
+      <path d="M250,270 
+               Q267,245 284,270 
+               Q301,295 318,270 
+               Q335,245 352,270 
+               Q369,295 386,270 
+               Q403,245 420,270 
+               Q437,295 454,270 
+               Q471,245 488,270 
+               Q505,295 522,270 
+               Q539,245 556,270 
+               Q573,295 590,270 
+               Q607,245 624,270 
+               Q641,295 658,270 
+               Q675,245 692,270 
+               Q709,295 726,270" 
+        fill="none" stroke-width="3" class="wave cold-wave" />
+    </g>
+    
+    <!-- 점수 바 -->
+    <rect x="620" y="245" width="100" height="20" fill="#eee" rx="3" ry="3" />
+    <rect x="620" y="245" width="47" height="20" fill="#FFC107" rx="3" ry="3" class="score-bar" />
+    <text x="670" y="260" class="score-text">47%</text>
+  </g>
+
+  <!-- 폐렴 음성 패널 -->
+  <g class="panel" style="opacity: 0; animation-delay: 0.6s">
+    <rect x="50" y="340" width="700" height="100" fill="white" stroke="#ddd" rx="5" ry="5" />
+    <text x="70" y="365" class="label">폐렴 음성</text>
+    <text x="70" y="385" class="sublabel">이상 점수: 0.83</text>
+    
+    <!-- 음파 시각화 -->
+    <clipPath id="pneumoniaClip">
+      <rect x="250" y="350" width="350" height="80" />
+    </clipPath>
+    <g clip-path="url(#pneumoniaClip)">
+      <path d="M250,390 
+               Q263,355 276,390 
+               Q289,425 302,390 
+               Q315,355 328,390 
+               Q341,425 354,390 
+               Q367,355 380,390 
+               Q393,425 406,390 
+               Q419,355 432,390 
+               Q445,425 458,390 
+               Q471,355 484,390 
+               Q497,425 510,390 
+               Q523,355 536,390 
+               Q549,425 562,390 
+               Q575,355 588,390 
+               Q601,425 614,390" 
+        fill="none" stroke-width="4" class="wave pneumonia-wave" />
+      <path d="M260,390 
+               Q273,360 286,390 
+               Q299,420 312,390 
+               Q325,360 338,390 
+               Q351,420 364,390 
+               Q377,360 390,390 
+               Q403,420 416,390 
+               Q429,360 442,390 
+               Q455,420 468,390 
+               Q481,360 494,390 
+               Q507,420 520,390 
+               Q533,360 546,390 
+               Q559,420 572,390 
+               Q585,360 598,390 
+               Q611,420 624,390" 
+        fill="none" stroke-width="2" class="wave pneumonia-wave" />
+    </g>
+    
+    <!-- 점수 바 -->
+    <rect x="620" y="365" width="100" height="20" fill="#eee" rx="3" ry="3" />
+    <rect x="620" y="365" width="83" height="20" fill="#F44336" rx="3" ry="3" class="score-bar" />
+    <text x="670" y="380" class="score-text">83%</text>
+  </g>
+
+  <!-- 범례 -->
+  <rect x="50" y="460" width="700" height="1" fill="#ddd" />
+  <text x="400" y="480" class="disclaimer">
+    본 시각화는 SoundPose 알고리즘에 의거한 가상적인 상황을 연출한 것으로, 실제 의료 진단 목적으로 사용될 수 없습니다.
+  </text>
+</svg>
